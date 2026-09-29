@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Portfolio Rohman — Web Developer, Website Modern dan Responsive."
+  >
+
+  <meta
+    name="theme-color"
+    content="#07080c"
+  >
+
+  <title>Rohman — Web Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #07080c;
+      --bg-soft: #0d1017;
+      --card: rgba(255,255,255,.045);
+      --border: rgba(255,255,255,.09);
+      --text: #f5f7fb;
+      --muted: #9ca3af;
+      --cyan: #22d3ee;
+      --purple: #8b5cf6;
+      --green: #34d399;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(139,92,246,.13),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 50%,
+          rgba(34,211,238,.08),
+          transparent 25%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        );
+
+      background-size: 40px 40px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      border-bottom: 1px solid transparent;
+
+      transition:
+        background .3s ease,
+        border-color .3s ease,
+        backdrop-filter .3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(7,8,12,.78);
+      backdrop-filter: blur(18px);
+      border-color: var(--border);
+    }
+
+    .nav-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+
+      height: 78px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: -.8px;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #b9bec8;
+      font-size: 14px;
+      transition: color .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: white !important;
+      background: rgba(255,255,255,.04);
+    }
+
+    .menu {
+      display: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+
+    .hero-container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 7px 12px;
+
+      border: 1px solid rgba(52,211,153,.18);
+      background: rgba(52,211,153,.055);
+      border-radius: 100px;
+
+      color: #a7f3d0;
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--green);
+    }
+
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: .98;
+      letter-spacing: -4px;
+      max-width: 720px;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        100deg,
+        var(--cyan),
+        var(--purple)
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      max-width: 570px;
+      margin: 28px 0 32px;
+      font-size: 16px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 46px;
+      padding: 0 20px;
+
+      border-radius: 12px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      cursor: pointer;
+      border: 1px solid var(--border);
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-main {
+      background: white;
+      color: #08090c;
+      border-color: white;
+    }
+
+    .btn-outline {
+      color: white;
+      background: rgba(255,255,255,.025);
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(34,211,238,.45);
+      background: rgba(34,211,238,.06);
+    }
+
+    /* =========================
+       HERO VISUAL
+    ========================= */
+    .visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.visual-image {
+  position: relative;
+  width: min(390px, 100%);
+  overflow: hidden;
+
+  border-radius: 32px;
+  border: 1px solid var(--border);
+
+  background: #0d1017;
+
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.45);
+}
+
+.visual-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+}
+
+/* Gradient supaya teks terbaca di atas gambar */
+.visual-image::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(5,7,12,.92) 0%,
+      rgba(5,7,12,.45) 25%,
+      transparent 55%
+    );
+
+  pointer-events: none;
+}
+
+.visual-info {
+  position: absolute;
+
+  left: 28px;
+  bottom: 27px;
+
+  z-index: 2;
+}
+
+.visual-info small {
+  display: block;
+
+  color: var(--cyan);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+}
+
+.visual-info h3 {
+  margin-top: 3px;
+
+  font-family: "Space Grotesk", sans-serif;
+
+  color: white;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+    }
+    /* =========================
+       SECTION
+    ========================= */
+
+    section {
+      padding: 120px 0;
+    }
+
+    .section-number {
+      color: var(--cyan);
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .section-head {
+      margin-bottom: 48px;
+    }
+
+    .section-head h2,
+    .contact h2 {
+      font-family: "Space Grotesk";
+      font-size: clamp(38px, 6vw, 64px);
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 580px;
+      margin-top: 18px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px;
+    }
+
+    .about-title {
+      font-family: "Space Grotesk";
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 20px;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      background: var(--card);
+
+      padding: 20px;
+      border-radius: 16px;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34,211,238,.28);
+    }
+
+    .skill strong {
+      font-size: 14px;
+    }
+
+    .skill span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project,
+    .project-coming {
+      position: relative;
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: 24px;
+
+      background: var(--card);
+
+      cursor: pointer;
+
+      transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .project:hover,
+    .project-coming:hover {
+      transform: translateY(-7px);
+      border-color: rgba(34,211,238,.25);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.3);
+    }
+
+    .project-image {
+      height: 310px;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent 25%,
+          rgba(0,0,0,.9)
+        ),
+        url("https://www.image2url.com/r2/default/images/1790709441878-03c199d2-e1cb-4ddb-8af4-9fa8e7ceff74.jpg")
+        center / cover;
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-type {
+      color: var(--cyan);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    .project h3,
+    .project-coming h3 {
+      font-family: "Space Grotesk";
+      font-size: 25px;
+      line-height: 1.15;
+    }
+
+    .project p,
+    .project-coming p {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 13px 0 20px;
+    }
+
+    .project-link,
+    .coming-button {
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* =========================
+       COMING SOON PROJECT
+    ========================= */
+
+    .project-coming {
+      min-height: 500px;
+      padding: 30px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(139,92,246,.2),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 20% 70%,
+          rgba(34,211,238,.12),
+          transparent 35%
+        ),
+        #0b0e15;
+    }
+
+    .coming-shape {
+      position: absolute;
+
+      width: 240px;
+      height: 240px;
+
+      top: 60px;
+      right: 45px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      box-shadow:
+        0 0 0 35px rgba(255,255,255,.012),
+        0 0 0 70px rgba(255,255,255,.008);
+    }
+
+    .coming-shape::before {
+      content: "";
+
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border-radius: 28px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(34,211,238,.2),
+          rgba(139,92,246,.2)
+        );
+
+      border: 1px solid rgba(255,255,255,.12);
+
+      box-shadow:
+        0 0 60px rgba(34,211,238,.08);
+    }
+
+    .monitor-icon {
+  position: absolute;
+
+  top: 90px;
+  right: 90px;
+
+  z-index: 2;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  background: rgba(255,255,255,.04);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.35);
+}
+
+.monitor-icon img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+    .coming-content {
+      position: relative;
+      z-index: 5;
+    }
+
+    .coming-label {
+      display: inline-block;
+
+      margin-bottom: 13px;
+      padding: 6px 10px;
+
+      border-radius: 100px;
+
+      background: rgba(139,92,246,.12);
+      border: 1px solid rgba(139,92,246,.25);
+
+      color: #c4b5fd;
+
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact .container {
+      padding: 80px 30px;
+
+      border-radius: 30px;
+
+      border: 1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(34,211,238,.08),
+          transparent 45%
+        ),
+        rgba(255,255,255,.025);
+    }
+
+    .contact h2 span {
+      background:
+        linear-gradient(
+          100deg,
+          var(--cyan),
+          var(--purple)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .contact p {
+      color: var(--muted);
+      max-width: 540px;
+      margin: 20px auto 28px;
+      font-size: 14px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 35px 20px;
+
+      border-top: 1px solid var(--border);
+
+      text-align: center;
+
+      color: #6b7280;
+
+      font-size: 12px;
+    }
+
+    /* =========================
+       LOCATION STATUS
+    ========================= */
+
+    .location-status {
+      position: fixed;
+
+      bottom: 18px;
+      left: 50%;
+
+      transform: translateX(-50%) translateY(20px);
+
+      padding: 8px 13px;
+
+      border: 1px solid var(--border);
+      border-radius: 100px;
+
+      background: rgba(7,8,12,.88);
+      backdrop-filter: blur(14px);
+
+      color: #9ca3af;
+
+      font-size: 10px;
+
+      opacity: 0;
+      pointer-events: none;
+
+      transition:
+        opacity .3s ease,
+        transform .3s ease;
+
+      z-index: 2000;
+    }
+
+    .location-status.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background: rgba(0,0,0,.72);
+
+      backdrop-filter: blur(12px);
+
+      z-index: 3000;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity .3s ease,
+        visibility .3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      position: relative;
+
+      width: min(650px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+
+      padding: 35px;
+
+      border-radius: 25px;
+
+      border: 1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at 80% 0%,
+          rgba(139,92,246,.13),
+          transparent 35%
+        ),
+        #0d1017;
+
+      box-shadow:
+        0 40px 120px rgba(0,0,0,.65);
+
+      transform: translateY(20px) scale(.97);
+
+      transition: transform .3s ease;
+    }
+
+    .modal.active .modal-box {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+
+      top: 17px;
+      right: 17px;
+
+      width: 36px;
+      height: 36px;
+
+      border: 1px solid var(--border);
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.04);
+      color: white;
+
+      font-size: 24px;
+
+      cursor: pointer;
+    }
+
+    .modal-icon {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .modal-label {
+      color: var(--cyan);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .modal-box h3 {
+      font-family: "Space Grotesk";
+      font-size: 30px;
+      line-height: 1.15;
+      margin-bottom: 15px;
+      padding-right: 30px;
+    }
+
+    .modal-box > p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+
+      margin: 25px 0;
+    }
+
+    .feature {
+      padding: 15px;
+
+      border: 1px solid var(--border);
+      border-radius: 15px;
+
+      background: rgba(255,255,255,.025);
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .feature span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .modal-note {
+      padding: 15px;
+
+      border-radius: 14px;
+
+      border: 1px solid rgba(34,211,238,.13);
+
+      background: rgba(34,211,238,.04);
+
+      color: #aeb5c0;
+
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    .modal-note strong {
+      color: var(--cyan);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       REVEAL ANIMATION
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .menu {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+
+        top: 78px;
+        left: 20px;
+        right: 20px;
+
+        display: none;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 5px;
+
+        padding: 12px;
+
+        background: rgba(13,16,23,.96);
+
+        backdrop-filter: blur(20px);
+
+        border: 1px solid var(--border);
+        border-radius: 18px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 12px;
+      }
+
+      .nav-button {
+        text-align: center;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .hero {
+        padding-top: 125px;
+      }
+
+      .visual {
+        order: -1;
+      }
+
+      .visual-card {
+        width: min(320px, 100%);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container,
+      .nav-inner,
+      .hero-container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      h1 {
+        font-size: 49px;
+        letter-spacing: -2.7px;
+      }
+
+      section {
+        padding: 85px 0;
+      }
+
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        height: 250px;
+      }
+
+      .project-coming {
+        min-height: 460px;
+      }
+
+      .modal-box {
+        padding: 27px 20px;
+      }
+
+      .modal-box h3 {
+        font-size: 25px;
+      }
+
+      .contact .container {
+        padding: 55px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <nav id="navbar">
+
+    <div class="nav-inner">
+
+      <a href="#home" class="logo">
+        rohman<span>.</span>
+      </a>
+
+      <div
+        class="menu"
+        id="menu"
+        aria-label="Buka menu"
+        aria-expanded="false"
+      >
+        ☰
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="#home">
+            Beranda
+          </a>
+        </li>
+
+        <li>
+          <a href="#about">
+            Tentang Saya
+          </a>
+        </li>
+
+        <li>
+          <a href="#projects">
+            Proyek
+          </a>
+        </li>
+
+        <li>
+          <a href="#contact" class="nav-button">
+            Hubungi Saya
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-container">
+
+      <div class="reveal">
+
+        <div class="status">
+          <span class="status-dot"></span>
+          Terbuka untuk proyek baru
+        </div>
+
+        <h1>
+          Membangun
+          <span class="gradient">
+            pengalaman
+          </span>
+          digital.
+        </h1>
+
+        <p class="hero-text">
+          Halo, saya Rohman. Saya membuat website modern,
+          responsif dan profesional dengan menggabungkan
+          desain yang menarik dengan teknologi web.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            href="#projects"
+            class="btn btn-main"
+          >
+            Lihat Proyek ↗
+          </a>
+
+          <a
+            href="#contact"
+            class="btn btn-outline"
+          >
+            Hubungi Saya
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="visual reveal">
+
+  <div class="visual-image">
+
+    <img
+      src="https://www.image2url.com/r2/default/images/1790708145457-f5230455-eb20-4c5f-a082-43108f0ddef6.jpg"
+      alt="Rohman — Web Developer"
+    >
+
+    <div class="visual-info">
+
+      <small>
+        WEB DEVELOPER
+      </small>
+
+      <h3>
+        ROHMAN
+      </h3>
+
+    </div>
+
+  </div>
+
+</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-number">
+        01 / TENTANG
+      </div>
+
+      <div class="about-grid">
+
+        <div class="reveal">
+
+          <h2 class="about-title">
+            Lebih dari sekadar kode.
+          </h2>
+
+          <p class="about-text">
+            Saya tertarik membangun pengalaman digital
+            yang tidak hanya terlihat bagus, tetapi juga
+            nyaman digunakan, responsif dan mudah
+            dikembangkan.
+          </p>
+
+        </div>
+
+
+        <div class="skills reveal">
+
+          <div class="skill">
+            <strong>HTML</strong>
+            <span>Struktur website modern</span>
+          </div>
+
+          <div class="skill">
+            <strong>CSS</strong>
+            <span>Interface dan visual design</span>
+          </div>
+
+          <div class="skill">
+            <strong>JavaScript</strong>
+            <span>Interaksi dan fitur dinamis</span>
+          </div>
+
+          <div class="skill">
+            <strong>WordPress</strong>
+            <span>Website dan CMS</span>
+          </div>
+
+          <div class="skill">
+            <strong>UI/UX</strong>
+            <span>Pengalaman pengguna</span>
+          </div>
+
+          <div class="skill">
+            <strong>Responsive Design</strong>
+            <span>Desktop hingga mobile</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROJECTS
+  ========================= -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <div class="section-head reveal">
+
+        <div class="section-number">
+          02 / PROYEK
+        </div>
+
+        <h2>
+          Beberapa karya.
+        </h2>
+
+        <p>
+          Eksplorasi beberapa project website dan
+          konsep aplikasi yang sedang saya kerjakan.
+        </p>
+
+      </div>
+
+
+      <div class="project-grid">
+
+
+        <!-- PROJECT 01 -->
+
+        <div
+          class="project reveal"
+          onclick="bukaProject()"
+          tabindex="0"
+          role="button"
+          aria-label="Buka website dealer mobil Chery"
+        >
+
+          <div class="project-image"></div>
+
+          <div class="project-content">
+
+            <div class="project-type">
+              01 — OTOMOTIF / WEBSITE
+            </div>
+
+            <h3>
+              Dealer Mobil Chery
+            </h3>
+
+            <p>
+              Website dealer mobil dengan tampilan
+              modern, responsif dan dirancang untuk
+              memberikan pengalaman pengguna yang
+              nyaman.
+            </p>
+
+            <span class="project-link">
+              Buka Website ↗
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 02 -->
+
+        <div
+          class="project-coming reveal"
+          onclick="bukaPopupMonitoring()"
+          tabindex="0"
+          role="button"
+          aria-label="Lihat informasi aplikasi live screen monitoring"
+        >
+
+          <div class="coming-shape"></div>
+
+          <div class="monitor-icon">
+  <img
+    src="https://www.image2url.com/r2/default/images/1790709807600-c0096c4a-8f4b-4497-a03e-3052b074957d.jpeg"
+    alt="Live Screen Monitoring"
+  >
+</div>
+
+          <div class="coming-content">
+
+            <div class="coming-label">
+              Coming Soon
+            </div>
+
+            <h3>
+              Aplikasi Live Screen Monitoring
+              Perangkat Jarak Jauh
+            </h3>
+
+            <p>
+              Konsep aplikasi untuk keluarga dan
+              pasangan dengan pemantauan perangkat
+              berbasis persetujuan.
+            </p>
+
+            <span class="coming-button">
+              Lihat Detail →
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MONITORING MODAL
+  ========================= -->
+
+  <div
+    class="modal"
+    id="monitorModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="monitorTitle"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="modal-close"
+        onclick="tutupPopupMonitoring()"
+        aria-label="Tutup"
+      >
+        ×
+      </button>
+
+      <div class="modal-icon">
+        🖥️
+      </div>
+
+      <div class="modal-label">
+        PROJECT 02 / COMING SOON
+      </div>
+
+      <h3 id="monitorTitle">
+        Aplikasi Live Screen Monitoring
+        Perangkat Jarak Jauh
+      </h3>
+
+      <p>
+        Konsep aplikasi untuk keluarga dan pasangan
+        yang memungkinkan pengguna memantau status
+        dan aktivitas perangkat yang telah terhubung
+        secara real-time berdasarkan persetujuan
+        pemilik perangkat.
+      </p>
+
+
+      <div class="feature-list">
+
+        <div class="feature">
+
+          <strong>
+            👨‍👩‍👧 Keluarga
+          </strong>
+
+          <span>
+            Dirancang untuk penggunaan bersama
+            antar anggota keluarga.
+          </span>
+
+        </div>
+
+
+        <div class="feature">
+
+          <strong>
+            ❤️ Pasangan
+          </strong>
+
+          <span>
+            Dapat digunakan bersama pasangan
+            dengan persetujuan kedua pihak.
+          </span>
+
+        </div>
+
+
+        <div class="feature">
+
+          <strong>
+            🖥️ Tampilan Layar
+          </strong>
+
+          <span>
+            Konsep tampilan perangkat secara
+            real-time melalui koneksi yang aman.
+          </span>
+
+        </div>
+
+
+        <div class="feature">
+
+          <strong>
+            🔐 Privasi
+          </strong>
+
+          <span>
+            Akses dirancang berdasarkan izin
+            dan persetujuan pemilik perangkat.
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="modal-note">
+
+        <strong>
+          Catatan privasi:
+        </strong>
+
+        <br>
+
+        Project ini dirancang untuk penggunaan
+        yang transparan. Pemilik perangkat harus
+        mengetahui dan menyetujui koneksi monitoring.
+        Tidak dirancang untuk pemantauan tersembunyi
+        atau akses perangkat tanpa izin.
+
+      </div>
+
+
+      <div class="modal-actions">
+
+        <button
+          class="btn btn-main"
+          onclick="tutupPopupMonitoring()"
+        >
+          Tutup
+        </button>
+
+        <a
+          href="#contact"
+          class="btn btn-outline"
+          onclick="tutupPopupMonitoring()"
+        >
+          Hubungi Rohman
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
+  <section class="contact" id="contact">
+
+    <div class="container reveal">
+
+      <div class="section-number">
+        03 / KONTAK
+      </div>
+
+      <h2>
+  Butuh Website?
+  <br>
+  <span>
+    Saya Siap Membuatnya.
+  </span>
+</h2>
+
+<p>
+  Open jasa pembuatan website untuk bisnis,
+  toko online, company profile, portfolio dan
+  kebutuhan digital lainnya. Desain modern,
+  responsive dan disesuaikan dengan kebutuhan Anda.
+</p>
+
+      <div class="contact-buttons">
+
+        <!-- GANTI EMAIL INI -->
+
+        <a
+          href="mailto:abdillahahmad0037@gmail.com"
+          class="btn btn-main"
+        >
+          Kirim Email
+        </a>
+
+
+        <!-- GANTI NOMOR WHATSAPP INI -->
+
+        <a
+          href="https://wa.me/628211360302"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    ©
+    <span id="tahun"></span>
+    Rohman.
+    All rights reserved.
+
+  </footer>
+
+
+  <!-- =========================
+       LOCATION STATUS
+  ========================= -->
+
+  <div
+    id="locationStatus"
+    class="location-status"
+  >
+    Memproses informasi kunjungan...
+  </div>
+
+
+  <script>
+
+    /* =====================================================
+       KONFIGURASI BACKEND TELEGRAM
+       
+       GANTI URL DI BAWAH DENGAN URL RAILWAY KAMU.
+       
+       Contoh:
+       https://rohman-telegram-backend.up.railway.app/api/visit
+       
+       JANGAN masukkan BOT TOKEN atau CHAT ID di sini.
+    ===================================================== */
+
+    const TELEGRAM_API =
+      "https://GANTI-DENGAN-URL-RAILWAY-KAMU.up.railway.app/api/visit";
+
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    const navbar =
+      document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 30) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+    });
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menu =
+      document.getElementById("menu");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    menu.addEventListener("click", () => {
+
+      const active =
+        navLinks.classList.toggle("active");
+
+      menu.setAttribute(
+        "aria-expanded",
+        active ? "true" : "false"
+      );
+
+    });
+
+
+    document
+      .querySelectorAll("#navLinks a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("active");
+
+          menu.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
+
+      });
+
+
+    /* =====================================================
+       PROJECT CHERY
+    ===================================================== */
+
+    function bukaProject() {
+
+      window.open(
+        "https://cheryibrahim.com/",
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+    }
+
+
+    /* Keyboard accessibility */
+
+    document
+      .querySelector(".project")
+      .addEventListener("keydown", event => {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          bukaProject();
+
+        }
+
+      });
+
+
+    /* =====================================================
+       MONITORING MODAL
+    ===================================================== */
+
+    const monitorModal =
+      document.getElementById("monitorModal");
+
+
+    function bukaPopupMonitoring() {
+
+      monitorModal.classList.add("active");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function tutupPopupMonitoring() {
+
+      monitorModal.classList.remove("active");
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    monitorModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === monitorModal
+        ) {
+
+          tutupPopupMonitoring();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+
+          tutupPopupMonitoring();
+
+        }
+
+      }
+    );
+
+
+    document
+      .querySelector(".project-coming")
+      .addEventListener("keydown", event => {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+          bukaPopupMonitoring();
+
+        }
+
+      });
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(element => {
+
+        observer.observe(element);
+
+      });
+
+
+    /* =====================================================
+       LOCATION STATUS
+    ===================================================== */
+
+    const locationStatus =
+      document.getElementById(
+        "locationStatus"
+      );
+
+
+    function statusLokasi(text) {
+
+      locationStatus.textContent = text;
+
+      locationStatus.classList.add("show");
+
+      setTimeout(() => {
+
+        locationStatus.classList.remove(
+          "show"
+        );
+
+      }, 3500);
+
+    }
+
+
+    /* =====================================================
+       DATA PENGUNJUNG
+    ===================================================== */
+
+    function dataPengunjung() {
+
+      return {
+
+        time:
+          new Date().toISOString(),
+
+        page:
+          window.location.href,
+
+        referrer:
+          document.referrer || "Direct",
+
+        language:
+          navigator.language || "-",
+
+        platform:
+          navigator.platform || "-",
+
+        screen:
+          `${window.screen.width}x${window.screen.height}`,
+
+        userAgent:
+          navigator.userAgent || "-"
+
+      };
+
+    }
+
+
+    /* =====================================================
+       KIRIM DATA KE BACKEND
+    ===================================================== */
+
+    async function kirimKunjungan(data) {
+
+      if (
+        !TELEGRAM_API ||
+        TELEGRAM_API.includes(
+          "https://rohman-web-developer-production.up.railway.app/api/vist"
+        )
+      ) {
+
+        console.warn(
+          "URL backend Telegram belum dikonfigurasi."
+        );
+
+        return false;
+
+      }
+
+
+      try {
+
+        const response =
+          await fetch(
+            TELEGRAM_API,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body: JSON.stringify({
+                type: "visit",
+                data: data
+              })
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Backend response error"
+          );
+
+        }
+
+
+        return true;
+
+      } catch (error) {
+
+        console.error(
+          "Gagal mengirim kunjungan:",
+          error
+        );
+
+        return false;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       KIRIM LOKASI
+       
+       Lokasi hanya ditambahkan apabila browser
+       berhasil mendapatkan koordinat setelah izin
+       diberikan oleh pengunjung.
+    ===================================================== */
+
+    async function kirimLokasi(
+      dataDasar,
+      latitude,
+      longitude,
+      accuracy
+    ) {
+
+      const data = {
+
+        ...dataDasar,
+
+        latitude:
+          latitude,
+
+        longitude:
+          longitude,
+
+        accuracy:
+          accuracy
+
+      };
+
+
+      return await kirimKunjungan(data);
+
+    }
+
+
+    /* =====================================================
+       REQUEST GEOLOCATION
+    ===================================================== */
+
+    function mintaLokasi(dataDasar) {
+
+      if (
+        !("geolocation" in navigator)
+      ) {
+
+        statusLokasi(
+          "Selamat Datang Di Website Rohman."
+        );
+
+        kirimKunjungan(
+          dataDasar
+        );
+
+        return;
+
+      }
+
+
+      statusLokasi(
+        "Selamat Datang Di Website Rohman..."
+      );
+
+
+      navigator.geolocation.getCurrentPosition(
+
+        async position => {
+
+          const latitude =
+            position.coords.latitude;
+
+          const longitude =
+            position.coords.longitude;
+
+          const accuracy =
+            position.coords.accuracy;
+
+
+          statusLokasi(
+            "Selamat Datang"
+          );
+
+
+          await kirimLokasi(
+            dataDasar,
+            latitude,
+            longitude,
+            accuracy
+          );
+
+        },
+
+
+        async error => {
+
+          /*
+            Jika izin ditolak, lokasi mati,
+            tidak tersedia, atau timeout,
+            koordinat TIDAK dikirim.
+          */
+
+          let message =
+            "Selamat Datang";
+
+          if (
+            error.code ===
+            error.PERMISSION_DENIED
+          ) {
+
+            message =
+              "Selamat Datang";
+
+          } else if (
+            error.code ===
+            error.POSITION_UNAVAILABLE
+          ) {
+
+            message =
+              "Selamat Datang";
+
+          } else if (
+            error.code ===
+            error.TIMEOUT
+          ) {
+
+            message =
+              "Selamat Datang";
+
+          }
+
+
+          statusLokasi(message);
+
+
+          /*
+            Tetap kirim notifikasi kunjungan
+            tanpa koordinat.
+          */
+
+          await kirimKunjungan(
+            dataDasar
+          );
+
+        },
+
+        {
+          enableHighAccuracy: true,
+
+          timeout: 10000,
+
+          maximumAge: 0
+
+        }
+
+      );
+
+    }
+
+
+    /* =====================================================
+       MULAI SISTEM
+    ===================================================== */
+
+    async function mulai() {
+
+      const data =
+        dataPengunjung();
+
+
+      /*
+        Meminta lokasi setelah halaman dibuka.
+
+        Jika berhasil:
+        Telegram menerima:
+        - Nama perangkat
+        - User Agent
+        - Lokasi
+        - Waktu
+        - Bahasa
+        - Resolusi layar
+        - Halaman
+
+        Jika gagal:
+        Telegram tetap menerima
+        data kunjungan tanpa koordinat.
+      */
+
+      mintaLokasi(data);
+
+    }
+
+
+    /* =====================================================
+       TAHUN FOOTER
+    ===================================================== */
+
+    document.getElementById(
+      "tahun"
+    ).textContent =
+      new Date().getFullYear();
+
+
+    /* =====================================================
+       JALANKAN
+    ===================================================== */
+
+    window.addEventListener(
+      "load",
+      mulai
+    );
+
+  </script>
+
+</body>
+</html>
